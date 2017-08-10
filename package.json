@@ -1,6 +1,6 @@
 {
   "name": "addeventlistener",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "`addEventListener` that takes options as an object and returns a function to remove the listener.",
   "main": "build/index.cjs.js",
   "module": "index.js",
