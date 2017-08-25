@@ -10,7 +10,7 @@ const Plugins = () => [
 
 export default [
   {
-    entry: 'index.js',
+    entry: 'src/index.js',
     dest: 'build/index.cjs.js',
     format: 'cjs',
     plugins: Plugins()
