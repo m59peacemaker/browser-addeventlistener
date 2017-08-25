@@ -1,5 +1,7 @@
 'use strict';
 
+Object.defineProperty(exports, '__esModule', { value: true });
+
 function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
 }
@@ -27,7 +29,7 @@ module.exports = exports['default'];
 
 });
 
-var index$1 = createCommonjsModule(function (module, exports) {
+var js = createCommonjsModule(function (module, exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -57,12 +59,21 @@ function removeEventListener(target, type, handler, options) {
 
 });
 
-var index_1 = index$1.addEventListener;
-var index_2 = index$1.removeEventListener;
+var js_1 = js.addEventListener;
+var js_2 = js.removeEventListener;
 
-var index = (element, name, listener, options) => {
-  index_1(element, name, listener, options);
-  return () => index_2(element, name, listener, options)
+const addEventListener$1 = (element, name, listener, options) => {
+  js_1(element, name, listener, options);
+  return () => js_2(element, name, listener, options)
 };
 
-module.exports = index;
+const once = (element, name, listener, options) => {
+  const off = addEventListener$1(element, name, (...args) => {
+    off();
+    return listener(...args)
+  }, options);
+  return off
+};
+
+exports['default'] = addEventListener$1;
+exports.once = once;
