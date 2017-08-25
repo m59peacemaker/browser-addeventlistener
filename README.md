@@ -32,3 +32,9 @@ import { once } from 'addeventlistener'
 
 const removeEventListener = once(window, 'click', console.log)
 ```
+
+### CommonJS
+
+```js
+const { default: addEventListener, once } = require('addeventlistener')
+```
